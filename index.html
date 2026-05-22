@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drochun Client — Новый уровень кастомизации</title>
+    <style>
+        /* Базовые стили и сброс */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: #0b0c10;
+            color: #c5c6c7;
+            overflow-x: hidden;
+        }
+
+        /* Навигация */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            background: rgba(11, 12, 16, 0.85);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(102, 252, 241, 0.1);
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #66fcf1;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        nav a {
+            color: #c5c6c7;
+            text-decoration: none;
+            margin-left: 20px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #66fcf1;
+        }
+
+        /* Главный баннер (Hero Section) */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+            background: radial-gradient(circle at center, #1f2833 0%, #0b0c10 100%);
+            margin-top: 60px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            color: #fff;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .hero h1 span {
+            color: #66fcf1;
+            text-shadow: 0 0 10px rgba(102, 252, 241, 0.5);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 35px;
+            background-color: #66fcf1;
+            color: #0b0c10;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: 0.3s;
+            text-transform: uppercase;
+            box-shadow: 0 4px 15px rgba(102, 252, 241, 0.3);
+        }
+
+        .btn:hover {
+            background-color: #45f3e7;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(102, 252, 241, 0.5);
+        }
+
+        /* Секция преимуществ */
+        .features {
+            padding: 100px 8%;
+            background-color: #11141a;
+            text-align: center;
+        }
+
+        .features h2 {
+            font-size: 2.5rem;
+            color: #fff;
+            margin-bottom: 50px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background-color: #1f2833;
+            padding: 40px 30px;
+            border-radius: 8px;
+            border: 1px solid rgba(102, 252, 241, 0.1);
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            border-color: #66fcf1;
+            box-shadow: 0 10px 20px rgba(102, 252, 241, 0.1);
+        }
+
+        .card h3 {
+            color: #fff;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Подвал */
+        footer {
+            background-color: #0b0c10;
+            text-align: center;
+            padding: 30px;
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(197, 198, 199, 0.1);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Навигационная панель -->
+    <header>
+        <div class="logo">Drochun Client</div>
+        <nav>
+            <a href="#features">Преимущества</a>
+            <a href="#download">Скачать</a>
+        </nav>
+    </header>
+
+    <!-- Главный экран -->
+    <section class="hero">
+        <h1>Максимальная <span>Скорость</span> и Контроль</h1>
+        <p>Drochun Client — это передовое решение для оптимизации рабочих процессов, кастомизации интерфейса и автоматизации рутины. Почувствуй плавность нового поколения.</p>
+        <a href="#download" class="btn">Попробовать бесплатно</a>
+    </section>
+
+    <!-- Преимущества -->
+    <section class="features" id="features">
+        <h2>Почему выбирают нас?</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>⚡ Высокий FPS</h3>
+                <p>Оптимизированное ядро обеспечивает максимальную производительность и минимальный отклик в любых сценариях.</p>
+            </div>
+            <div class="card">
+                <h3>🎨 Кастомизация</h3>
+                <p>Настраивай каждую деталь интерфейса под себя. Создай уникальное рабочее пространство за пару кликов.</p>
+            </div>
+            <div class="card">
+                <h3>🛡️ Безопасность</h3>
+                <p>Продвинутые протоколы защиты данных гарантируют полную конфиденциальность вашей работы и сессий.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Подвал -->
+    <footer>
+        <p>&copy; 2026 Drochun Client. Все права защищены. Разработано для ценителей качества.</p>
+    </footer>
+
+</body>
+</html>
