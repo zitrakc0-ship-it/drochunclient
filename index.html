@@ -14,10 +14,8 @@
         }
 
         body {
-            /* Фоновое изображение жидкого стекла с темным матовым фильтром поверх */
-            background: linear-gradient(rgba(18, 19, 22, 0.4), rgba(18, 19, 22, 0.7)), 
-                        url('https://ibb.co') no-repeat center center fixed;
-            background-size: cover;
+            /* Чистый CSS градиент под серое матовое стекло, никаких внешних картинок */
+            background: #141517 radial-gradient(circle at 30% 20%, #282a30 0%, #0e0f11 100%) no-repeat fixed;
             color: #e3e4e6;
             overflow-x: hidden;
             height: 100vh;
@@ -30,7 +28,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: #0f1012;
+            background: #090a0c;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -69,7 +67,7 @@
             justify-content: space-between;
             align-items: center;
             padding: 20px 8%;
-            background: rgba(30, 31, 36, 0.4);
+            background: rgba(35, 37, 43, 0.25);
             backdrop-filter: blur(30px) saturate(140%);
             -webkit-backdrop-filter: blur(30px) saturate(140%);
             position: fixed;
@@ -80,22 +78,22 @@
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
         }
 
-        /* ЧЕРНО-БЕЛЫЙ ГРАДИЕНТ ДЛЯ ЛОГОТИПА И ГЛАВНОГО ЗАГОЛОВКА */
+        /* НАСТОЯЩИЙ КОНТРАСТНЫЙ ЧЕРНО-БЕЛЫЙ ГРАДИЕНТ */
         .gradient-text {
             text-transform: uppercase;
-            background: linear-gradient(135deg, #ffffff 0%, #b5b5b5 45%, #333333 100%);
+            background: linear-gradient(135deg, #ffffff 0%, #aaaaaa 40%, #1a1a1a 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            filter: drop-shadow(0px 4px 8px rgba(0,0,0,0.5));
+            font-weight: 900;
+            filter: drop-shadow(0px 2px 4px rgba(0,0,0,0.5));
         }
 
         .logo {
             font-size: 24px;
-            font-weight: 900;
             letter-spacing: 2.5px;
         }
 
-        /* ТЕ САМЫЕ СТЕКЛЯННЫЕ КНОПКИ-КАПСУЛЫ */
+        /* СТЕКЛЯННЫЕ КНОПКИ НАВИГАЦИИ */
         .nav-capsule {
             display: flex;
             background: rgba(255, 255, 255, 0.03);
@@ -123,7 +121,7 @@
             background: rgba(255, 255, 255, 0.08);
             box-shadow: 
                 inset 0 1px 2px rgba(255,255,255,0.15),
-                inset 6px 0 14px -3px rgba(59, 130, 246, 0.6); /* Синий неоновый блик слева */
+                inset 6px 0 14px -3px rgba(59, 130, 246, 0.6);
             border: 1px solid rgba(255, 255, 255, 0.03);
         }
 
@@ -146,7 +144,7 @@
             background: rgba(255, 255, 255, 0.1);
         }
 
-        /* ================= ЦЕНТРАЛЬНЫЙ БЛОК ГЛАВНОГО МЕНЮ ================= */
+        /* ================= МЕНЮ ЦЕНТР ================= */
         .hero {
             height: 100vh;
             display: flex;
@@ -158,14 +156,12 @@
         }
 
         .hero h1 {
-            font-size: 5.5rem; /* Сделали текст огромным, как часы */
-            font-weight: 900;
+            font-size: 6rem; /* Крупный заголовок */
             letter-spacing: -1.5px;
             margin-bottom: 25px;
             line-height: 1.05;
         }
 
-        /* Стеклянные кнопки под заголовком */
         .hero-controls {
             display: flex;
             gap: 15px;
@@ -192,7 +188,6 @@
             color: #fff;
             transform: translateY(-2px);
             border-color: rgba(255,255,255,0.2);
-            box-shadow: inset 0 1px 1px rgba(255,255,255,0.1), 0 20px 40px rgba(0,0,0,0.5);
         }
 
         .btn-glass.primary {
@@ -204,7 +199,6 @@
 
         .btn-glass.primary:hover {
             background: #ffffff;
-            color: #000;
             box-shadow: 0 20px 40px rgba(255,255,255,0.3);
         }
 
@@ -230,7 +224,7 @@
         </h1>
     </div>
 
-    <!-- ================= ШАПКА САЙТА (ТЕ САМЫЕ СТЕКЛЯННЫЕ КНОПКИ) ================= -->
+    <!-- ================= ШАПКА САЙТА (СТЕКЛЯННЫЕ КНОПКИ) ================= -->
     <header>
         <div class="logo gradient-text">Void Client</div>
         
@@ -255,10 +249,10 @@
 
     <!-- ================= ЦЕНТРАЛЬНЫЙ БЛОК ГЛАВНОГО МЕНЮ ================= -->
     <section class="hero" id="main">
-        <!-- Текст "Void Client" заменен и покрашен тем же градиентом -->
+        <!-- Текст "Void Client" вместо максимальной скорости -->
         <h1 class="gradient-text">Void Client</h1>
         
-        <!-- Те самые матовые стеклянные кнопки-капсулы прямо под текстом -->
+        <!-- Стеклянные кнопки прямо под текстом -->
         <div class="hero-controls">
             <a href="#download" class="btn-glass primary">Попробовать бесплатно</a>
             <a href="#features" class="btn-glass">Узнать больше</a>
@@ -282,4 +276,3 @@
 
 </body>
 </html>
-
