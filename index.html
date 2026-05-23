@@ -14,11 +14,31 @@
         }
 
         body {
-            /* Чистый CSS градиент под серое матовое стекло, никаких внешних картинок */
-            background: #141517 radial-gradient(circle at 30% 20%, #282a30 0%, #0e0f11 100%) no-repeat fixed;
+            /* Жидкое глянцевое стекло с глубокими тенями и эффектом пузырьков через CSS градиенты */
+            background-color: #08090a;
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 75% 70%, rgba(255, 255, 255, 0.05) 0%, transparent 45%),
+                linear-gradient(135deg, #0d0e10 0%, #16181c 40%, #070809 70%, #111215 100%);
+            background-attachment: fixed;
             color: #e3e4e6;
             overflow-x: hidden;
             height: 100vh;
+            position: relative;
+        }
+
+        /* Текстура стеклянных пузырьков на фоне */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: 
+                radial-gradient(circle at 35% 45%, rgba(255,255,255,0.4) 1px, transparent 2px),
+                radial-gradient(circle at 70% 30%, rgba(255,255,255,0.3) 2px, transparent 4px),
+                radial-gradient(circle at 45% 75%, rgba(255,255,255,0.5) 1px, transparent 2px),
+                radial-gradient(circle at 80% 85%, rgba(255,255,255,0.2) 3px, transparent 6px);
+            pointer-events: none;
+            opacity: 0.7;
         }
 
         /* ================= ИНТРО ЭКРАН ================= */
@@ -28,7 +48,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: #090a0c;
+            background: #060708;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -47,7 +67,7 @@
             background: linear-gradient(180deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.05) 100%);
             -webkit-background-clip: text;
             backdrop-filter: blur(4px);
-            text-shadow: 0px 1px 1px rgba(255, 255, 255, 0.2), 0px 10px 30px rgba(0, 0, 0, 0.6);
+            text-shadow: 0px 1px 1px rgba(255, 255, 255, 0.2), 0px 10px 30px rgba(0, 0, 0, 0.7);
             letter-spacing: -1px;
             animation: glassFadeIn 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
         }
@@ -57,7 +77,7 @@
             font-size: 2rem;
             font-weight: 400;
             margin-top: 15px;
-            color: rgba(255, 255, 255, 0.4);
+            color: rgba(255, 255, 255, 0.35);
             letter-spacing: 2px;
         }
 
@@ -67,25 +87,24 @@
             justify-content: space-between;
             align-items: center;
             padding: 20px 8%;
-            background: rgba(35, 37, 43, 0.25);
-            backdrop-filter: blur(30px) saturate(140%);
-            -webkit-backdrop-filter: blur(30px) saturate(140%);
+            background: rgba(20, 21, 25, 0.3);
+            backdrop-filter: blur(35px) saturate(150%);
+            -webkit-backdrop-filter: blur(35px) saturate(150%);
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
         }
 
-        /* НАСТОЯЩИЙ КОНТРАСТНЫЙ ЧЕРНО-БЕЛЫЙ ГРАДИЕНТ */
         .gradient-text {
             text-transform: uppercase;
-            background: linear-gradient(135deg, #ffffff 0%, #aaaaaa 40%, #1a1a1a 100%);
+            background: linear-gradient(135deg, #ffffff 0%, #a6a6a6 45%, #141414 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             font-weight: 900;
-            filter: drop-shadow(0px 2px 4px rgba(0,0,0,0.5));
+            filter: drop-shadow(0px 3px 6px rgba(0,0,0,0.6));
         }
 
         .logo {
@@ -93,18 +112,17 @@
             letter-spacing: 2.5px;
         }
 
-        /* СТЕКЛЯННЫЕ КНОПКИ НАВИГАЦИИ */
         .nav-capsule {
             display: flex;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.04);
             padding: 6px;
             border-radius: 40px;
-            box-shadow: inset 0 1px 2px rgba(255,255,255,0.02), 0 10px 25px rgba(0,0,0,0.4);
+            box-shadow: inset 0 1px 2px rgba(255,255,255,0.01), 0 12px 30px rgba(0,0,0,0.5);
         }
 
         .nav-item {
-            color: rgba(255, 255, 255, 0.45);
+            color: rgba(255, 255, 255, 0.4);
             text-decoration: none;
             padding: 12px 28px;
             font-size: 14px;
@@ -118,30 +136,30 @@
 
         .nav-item.active {
             color: #fff;
-            background: rgba(255, 255, 255, 0.08);
+            background: rgba(255, 255, 255, 0.06);
             box-shadow: 
-                inset 0 1px 2px rgba(255,255,255,0.15),
-                inset 6px 0 14px -3px rgba(59, 130, 246, 0.6);
-            border: 1px solid rgba(255, 255, 255, 0.03);
+                inset 0 1px 2px rgba(255,255,255,0.1),
+                inset 6px 0 14px -3px rgba(59, 130, 246, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.02);
         }
 
         .search-circle {
             width: 46px;
             height: 46px;
             border-radius: 50%;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.04);
             margin-left: 14px;
             display: flex;
             justify-content: center;
             align-items: center;
             cursor: pointer;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.5);
             transition: all 0.3s ease;
         }
 
         .search-circle:hover {
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.08);
         }
 
         /* ================= МЕНЮ ЦЕНТР ================= */
@@ -156,54 +174,54 @@
         }
 
         .hero h1 {
-            font-size: 6rem; /* Крупный заголовок */
-            letter-spacing: -1.5px;
-            margin-bottom: 25px;
-            line-height: 1.05;
+            font-size: 6.5rem;
+            letter-spacing: -2px;
+            margin-bottom: 30px;
+            line-height: 1;
         }
 
         .hero-controls {
             display: flex;
             gap: 15px;
-            margin-top: 20px;
+            margin-top: 25px;
         }
 
         .btn-glass {
-            padding: 16px 36px;
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            color: rgba(255, 255, 255, 0.8);
+            padding: 16px 38px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            color: rgba(255, 255, 255, 0.75);
             text-decoration: none;
             font-weight: 600;
             font-size: 15px;
             border-radius: 35px;
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            box-shadow: inset 0 1px 1px rgba(255,255,255,0.05), 0 15px 35px rgba(0,0,0,0.4);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            box-shadow: inset 0 1px 1px rgba(255,255,255,0.03), 0 15px 35px rgba(0,0,0,0.5);
             transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
         }
 
         .btn-glass:hover {
-            background: rgba(255, 255, 255, 0.12);
+            background: rgba(255, 255, 255, 0.1);
             color: #fff;
             transform: translateY(-2px);
-            border-color: rgba(255,255,255,0.2);
+            border-color: rgba(255,255,255,0.15);
         }
 
         .btn-glass.primary {
-            background: rgba(255, 255, 255, 0.9);
-            color: #0b0c10;
+            background: rgba(255, 255, 255, 0.85);
+            color: #060708;
             border: none;
-            box-shadow: 0 15px 35px rgba(255,255,255,0.15);
+            box-shadow: 0 15px 35px rgba(255,255,255,0.1);
         }
 
         .btn-glass.primary:hover {
             background: #ffffff;
-            box-shadow: 0 20px 40px rgba(255,255,255,0.3);
+            box-shadow: 0 20px 40px rgba(255,255,255,0.25);
         }
 
         @keyframes glassFadeIn {
-            0% { opacity: 0; transform: scale(0.97); filter: blur(5px); }
+            0% { opacity: 0; transform: scale(0.97); filter: blur(6px); }
             100% { opacity: 1; transform: scale(1); filter: blur(0); }
         }
 
@@ -249,10 +267,8 @@
 
     <!-- ================= ЦЕНТРАЛЬНЫЙ БЛОК ГЛАВНОГО МЕНЮ ================= -->
     <section class="hero" id="main">
-        <!-- Текст "Void Client" вместо максимальной скорости -->
         <h1 class="gradient-text">Void Client</h1>
         
-        <!-- Стеклянные кнопки прямо под текстом -->
         <div class="hero-controls">
             <a href="#download" class="btn-glass primary">Попробовать бесплатно</a>
             <a href="#features" class="btn-glass">Узнать больше</a>
