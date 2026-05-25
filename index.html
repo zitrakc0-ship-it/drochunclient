@@ -170,7 +170,8 @@
             align-items: center;
             cursor: pointer;
         }
-                /* ================= МЕНЮ ЦЕНТР ================= */
+
+        /* ================= МЕНЮ ЦЕНТР ================= */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -228,7 +229,7 @@
             transform: translateY(-2px);
         }
 
-        /* ================= МОДАЛЬНОЕ ОКНО ПРЕИМУЩЕСТВ ================= */
+        /* ================= МОДАЛЬНЫЕ ОКНА Общие ================= */
         .modal-overlay {
             position: fixed;
             top: 0;
@@ -266,6 +267,10 @@
             transition: transform 0.4s ease;
             max-height: 90vh;
             overflow-y: auto;
+        }
+
+        .modal-container.auth-size {
+            max-width: 420px;
         }
 
         .modal-overlay.active .modal-container {
@@ -323,80 +328,105 @@
             line-height: 1.5;
         }
 
+        /* ================= ПОЛЯ АВТОРИЗАЦИИ ================= */
+        .auth-form {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-top: 10px;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .input-group label {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.4);
+            font-weight: 600;
+            padding-left: 4px;
+        }
+
+        .input-field {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            padding: 14px 18px;
+            border-radius: 16px;
+            color: #fff;
+            font-size: 14px;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .input-field:focus {
+            background: rgba(255, 255, 255, 0.04);
+            border-color: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.03);
+        }
+
+        .auth-btn {
+            background: #fff;
+            color: #08090a;
+            border: none;
+            padding: 14px;
+            border-radius: 16px;
+            font-weight: 700;
+            font-size: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 8px;
+        }
+
+        .auth-btn:hover {
+            background: rgba(255, 255, 255, 0.9);
+            transform: translateY(-1px);
+        }
+
+        .error-msg {
+            color: #ff4a4a;
+            font-size: 13px;
+            text-align: center;
+            min-height: 18px;
+            font-weight: 500;
+        }
+
+        .toggle-auth {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.4);
+            text-align: center;
+            margin-top: 5px;
+        }
+
+        .toggle-auth span {
+            color: #fff;
+            cursor: pointer;
+            text-decoration: underline;
+            font-weight: 600;
+        }
+
         /* ================= ПОЛНЫЙ МОБИЛЬНЫЙ АДАПТИВ ================= */
         @media (max-width: 768px) {
-            header {
-                padding: 12px 6%;
-            }
-
-            .logo {
-                font-size: 20px;
-            }
-
-            .nav-item {
-                padding: 8px 16px;
-                font-size: 13px;
-            }
-
-            .search-circle {
-                width: 34px;
-                height: 34px;
-                margin-left: 8px;
-            }
-
-            .hero {
-                padding-top: 100px;
-            }
-
-            .hero h1 {
-                font-size: 3.2rem;
-                letter-spacing: -1px;
-            }
-
-            .hero p {
-                font-size: 1rem;
-                margin-bottom: 25px;
-            }
-
-            .hero-controls {
-                flex-direction: column;
-                width: 100%;
-                max-width: 260px;
-                gap: 10px;
-            }
-
-            .btn-glass {
-                padding: 14px 20px;
-                font-size: 14px;
-                text-align: center;
-                width: 100%;
-            }
-
-            .glass-title {
-                font-size: 2.6rem;
-            }
-
-            .glass-title span {
-                font-size: 1.1rem;
-            }
-
-            .modal-container {
-                padding: 35px 20px 25px 20px;
-                border-radius: 20px;
-            }
-
-            .modal-grid {
-                grid-template-columns: 1fr;
-                gap: 12px;
-            }
-
-            .feature-box {
-                padding: 20px;
-            }
+            header { padding: 12px 6%; }
+            .logo { font-size: 20px; }
+            .nav-item { padding: 8px 16px; font-size: 13px; }
+            .search-circle { width: 34px; height: 34px; margin-left: 8px; }
+            .hero { padding-top: 100px; }
+            .hero h1 { font-size: 3.2rem; letter-spacing: -1px; }
+            .hero p { font-size: 1rem; margin-bottom: 25px; }
+            .hero-controls { flex-direction: column; width: 100%; max-width: 260px; gap: 10px; }
+            .btn-glass { padding: 14px 20px; font-size: 14px; text-align: center; width: 100%; }
+            .glass-title { font-size: 2.6rem; }
+            .glass-title span { font-size: 1.1rem; }
+            .modal-container { padding: 35px 20px 25px 20px; border-radius: 20px; }
+            .modal-grid { grid-template-columns: 1fr; gap: 12px; }
+            .feature-box { padding: 20px; }
         }
     </style>
 </head>
 <body>
+
     <!-- Фоновый холст для падающих частиц -->
     <canvas id="particles-canvas"></canvas>
 
@@ -410,7 +440,7 @@
 
     <!-- ШАПКА САЙТА -->
     <header>
-        <div class="logo gradient-text">Home</div>
+        <div class="logo gradient-text">Void</div>
         <div style="display: flex; align-items: center;">
             <nav class="nav-capsule">
                 <div class="nav-item active" id="navHome">Главная</div>
@@ -431,7 +461,7 @@
         <p>Ультимативное решение для глубокой настройки интерфейса и оптимизации производительности. Почувствуйте абсолютный контроль.</p>
         <div class="hero-controls">
             <div class="btn-glass" id="btnOpenFeatures">Преимущества</div>
-            <div class="btn-glass">Скачать</div>
+            <div class="btn-glass" id="btnOpenAuth">Аккаунт</div>
         </div>
     </main>
 
@@ -461,115 +491,179 @@
         </div>
     </div>
 
+    <!-- МОДАЛЬНОЕ ОКНО АВТОРИЗАЦИИ -->
+    <div class="modal-overlay" id="authModal">
+        <div class="modal-container auth-size">
+            <div class="modal-close" id="btnCloseAuth">&times;</div>
+            <h2 class="gradient-text" id="authTitle" style="font-size: 1.8rem; margin-bottom: 20px; text-align: center;">Вход</h2>
+            
+            <form class="auth-form" id="authForm" onsubmit="return false;">
+                <div class="input-group">
+                    <label for="authLogin">Логин</label>
+                    <input type="text" id="authLogin" class="input-field" placeholder="Введите логин" autocomplete="off">
+                </div>
+                <div class="input-group">
+                    <label for="authPassword">Пароль</label>
+                    <input type="password" id="authPassword" class="input-field" placeholder="Введите пароль">
+                </div>
+                <div class="error-msg" id="errorMsg"></div>
+                <button type="submit" class="auth-btn" id="authSubmitBtn">Войти</button>
+            </form>
+            
+            <div class="toggle-auth" id="toggleAuthText">
+                Нет аккаунта? <span id="switchAuthBtn">Создать</span>
+            </div>
+        </div>
+    </div>
+
     <!-- СЦЕНАРИИ И ИНТЕРАКТИВНАЯ ЛОГИКА -->
     <script>
         // --- 1. Логика работы Интро Экрана ---
         const introOverlay = document.getElementById('introOverlay');
-        
         function closeIntro() {
             introOverlay.style.opacity = '0';
             introOverlay.style.transform = 'scale(1.05)';
-            setTimeout(() => {
-                introOverlay.style.display = 'none';
-            }, 600);
+            setTimeout(() => { introOverlay.style.display = 'none'; }, 600);
         }
-
         introOverlay.addEventListener('click', closeIntro);
-        // Запасной автовыход через 3 секунды, если клик не сработал
         setTimeout(closeIntro, 3000);
 
-        // --- 2. Модальное окно Преимущества ---
+        // --- 2. Модальные окна: Преимущества и Авторизация ---
         const featuresModal = document.getElementById('featuresModal');
+        const authModal = document.getElementById('authModal');
         const btnOpenFeatures = document.getElementById('btnOpenFeatures');
+        const btnOpenAuth = document.getElementById('btnOpenAuth');
         const navFeatures = document.getElementById('navFeatures');
         const navHome = document.getElementById('navHome');
         const btnCloseFeatures = document.getElementById('btnCloseFeatures');
+        const btnCloseAuth = document.getElementById('btnCloseAuth');
 
-        function openModal() {
+        function openFeatures() {
             featuresModal.classList.add('active');
+            authModal.classList.remove('active');
             navFeatures.classList.add('active');
             navHome.classList.remove('active');
         }
-
-        function closeModal() {
+        function openAuth() {
+            authModal.classList.add('active');
             featuresModal.classList.remove('active');
+            navFeatures.classList.remove('active');
+            navHome.classList.remove('active');
+        }
+        function closeAllModals() {
+            featuresModal.classList.remove('active');
+            authModal.classList.remove('active');
             navFeatures.classList.remove('active');
             navHome.classList.add('active');
         }
 
-        // Слушатели событий клика
-        btnOpenFeatures.addEventListener('click', openModal);
-        navFeatures.addEventListener('click', openModal);
-        btnCloseFeatures.addEventListener('click', closeModal);
-        navHome.addEventListener('click', closeModal);
+        btnOpenFeatures.addEventListener('click', openFeatures);
+        navFeatures.addEventListener('click', openFeatures);
+        btnOpenAuth.addEventListener('click', openAuth);
+        btnCloseFeatures.addEventListener('click', closeAllModals);
+        btnCloseAuth.addEventListener('click', closeAllModals);
+        navHome.addEventListener('click', closeAllModals);
 
-        // Закрытие по клику на темную область вокруг окна
-        featuresModal.addEventListener('click', (e) => {
-            if (e.target === featuresModal) {
-                closeModal();
+        window.addEventListener('click', (e) => {
+            if (e.target === featuresModal || e.target === authModal) { closeAllModals(); }
+        });
+
+        // --- 3. Переключение и Валидация Формы (Логин / Регистрация) ---
+        let isSignUpMode = false;
+        const authTitle = document.getElementById('authTitle');
+        const authSubmitBtn = document.getElementById('authSubmitBtn');
+        const toggleAuthText = document.getElementById('toggleAuthText');
+        const errorMsg = document.getElementById('errorMsg');
+        const authLoginInput = document.getElementById('authLogin');
+        const authPasswordInput = document.getElementById('authPassword');
+
+        function initToggleListener() {
+            const switchAuthBtn = document.getElementById('switchAuthBtn');
+            if (switchAuthBtn) {
+                switchAuthBtn.addEventListener('click', () => {
+                    isSignUpMode = !isSignUpMode;
+                    errorMsg.innerText = '';
+                    authLoginInput.value = '';
+                    authPasswordInput.value = '';
+                    if (isSignUpMode) {
+                        authTitle.innerText = 'Регистрация';
+                        authSubmitBtn.innerText = 'Зарегистрироваться';
+                        toggleAuthText.innerHTML = 'Уже есть аккаунт? <span id="switchAuthBtn">Войти</span>';
+                    } else {
+                        authTitle.innerText = 'Вход';
+                        authSubmitBtn.innerText = 'Войти';
+                        toggleAuthText.innerHTML = 'Нет аккаунта? <span id="switchAuthBtn">Создать</span>';
+                    }
+                    initToggleListener();
+                });
+            }
+        }
+        initToggleListener();
+
+        authSubmitBtn.addEventListener('click', () => {
+            const login = authLoginInput.value.trim();
+            const password = authPasswordInput.value;
+            errorMsg.innerText = '';
+
+            if (!login || !password) {
+                errorMsg.innerText = 'Заполните все поля!';
+                return;
+            }
+
+            // Проверка регулярным выражением на разрешенные символы
+            const allowedSymbols = /^[A-Za-z0-9.!]+$/;
+
+            if (!allowedSymbols.test(login)) {
+                errorMsg.innerText = 'Разрешены только латиница, цифры, точки и !';
+                return;
+            }
+            if (!allowedSymbols.test(password)) {
+                errorMsg.innerText = 'Разрешены только латиница, цифры, точки и !';
+                return;
+            }
+
+            if (isSignUpMode) {
+                alert(`Успешно!\nЛогин: ${login}\nПароль прошел валидацию.`);
+            } else {
+                alert(`Успешно!\nВход для: ${login}`);
             }
         });
 
-        // --- 3. Высокопроизводительные Падающие Частицы ---
+        // --- 4. Высокопроизводительные Падающие Частицы ---
         const canvas = document.getElementById('particles-canvas');
         const ctx = canvas.getContext('2d');
-
         let particlesArray = [];
-        // Оптимальное количество для сохранения плавности (FPS) на смартфонах
-        const numberOfParticles = 60; 
+        const numberOfParticles = 60;
 
-        function resizeCanvas() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        }
+        function resizeCanvas() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
         window.addEventListener('resize', resizeCanvas);
         resizeCanvas();
 
         class Particle {
-            constructor() {
-                this.reset();
-                this.y = Math.random() * canvas.height; // Случайный старт по всей высоте при загрузке
-            }
+            constructor() { this.reset(); this.y = Math.random() * canvas.height; }
             reset() {
-                this.x = Math.random() * canvas.width;
-                this.y = -10;
-                this.size = Math.random() * 2 + 0.5; // Небольшой размер, чтобы не перегружать UI
-                this.speedY = Math.random() * 1.0 + 0.3; // Спокойная скорость падения
-                this.speedX = Math.random() * 0.4 - 0.2; // Боковое покачивание
-                this.opacity = Math.random() * 0.4 + 0.1; // Легкая прозрачность
+                this.x = Math.random() * canvas.width; this.y = -10;
+                this.size = Math.random() * 2 + 0.5; this.speedY = Math.random() * 1.0 + 0.3;
+                this.speedX = Math.random() * 0.4 - 0.2; this.opacity = Math.random() * 0.4 + 0.1;
             }
             update() {
-                this.y += this.speedY;
-                this.x += this.speedX;
-
-                if (this.y > canvas.height + 10 || this.x > canvas.width + 10 || this.x < -10) {
-                    this.reset();
-                }
+                this.y += this.speedY; this.x += this.speedX;
+                if (this.y > canvas.height + 10 || this.x > canvas.width + 10 || this.x < -10) { this.reset(); }
             }
             draw() {
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                ctx.fillStyle = `rgba(255, 255, 255, ${this.opacity})`;
-                ctx.fill();
+                ctx.beginPath(); ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(255, 255, 255, ${this.opacity})`; ctx.fill();
             }
         }
-
         function initParticles() {
             particlesArray = [];
-            for (let i = 0; i < numberOfParticles; i++) {
-                particlesArray.push(new Particle());
-            }
+            for (let i = 0; i < numberOfParticles; i++) { particlesArray.push(new Particle()); }
         }
-
         function animateParticles() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
-            for (let i = 0; i < particlesArray.length; i++) {
-                particlesArray[i].update();
-                particlesArray[i].draw();
-            }
+            for (let i = 0; i < particlesArray.length; i++) { particlesArray[i].update(); particlesArray[i].draw(); }
             requestAnimationFrame(animateParticles);
         }
-
         initParticles();
         animateParticles();
     </script>
